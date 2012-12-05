@@ -21,6 +21,6 @@
 (require 'jon-desktop)
 ;; (require 'jon-startup)
 
-;; (setq custom-theme-directory "~/.emacs.d/themes")
-;; (load-theme 'tomorrow-night-modeline)
+(setq custom-theme-directory "~/.emacs.d/themes")
+(load-theme 'tomorrow-night-modeline)
 (set-cursor-color "white")
