@@ -11,7 +11,7 @@
 (setq custom-file (concat dotfiles-dir "custom.el"))
 (setq recentf-save-file (concat dotfiles-dir "recentf"))
 
-;; (require 'jon-misc)
+(require 'jon-misc)
 ;; (require 'jon-osx)
 
 ;; (require 'jon-packages)
