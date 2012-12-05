@@ -12,7 +12,7 @@
 (setq recentf-save-file (concat dotfiles-dir "recentf"))
 
 (require 'jon-misc)
-;; (require 'jon-osx)
+(require 'jon-osx)
 
 ;; (require 'jon-packages)
 ;; (require 'jon-starter-kit)
