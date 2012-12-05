@@ -13,6 +13,7 @@
 
 (require 'jon-misc)
 (require 'jon-osx)
+(require 'jon-starter-kit)
 (require 'jon-packages)
 
 ;; (require 'jon-starter-kit)

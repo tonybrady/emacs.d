@@ -46,14 +46,10 @@
 (el-get-install "yaml-mode")
 (el-get-install "magit")
 (el-get-install "magithub")
-;; this isn't working, main requirement was csv
-;; (el-get-install "emacs-goodies-el")
-;; (el-get-install "csv-mode")
 (el-get-install "markdown-mode")
 (el-get-install "auto-pair-plus")
 (el-get-install "emacs-jabber")
 (el-get-install "mustache-mode")
-;; (el-get-install "gist")
 (el-get-install "coffee-mode")
 (el-get-install "haskell-mode")
 (el-get-install "deft")
@@ -62,6 +58,12 @@
 (el-get-install "multiple-cursors")
 (el-get-install "less-css-mode")
 (el-get-install "pretty-symbols")
+(el-get-install "paredit")
+
+;; not working, emacs-goodies was for csv-mode
+;; (el-get-install "emacs-goodies-el")
+;; (el-get-install "csv-mode")
+;; (el-get-install "gist")
 
 (el-get 'sync)
 
@@ -75,129 +77,123 @@
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 
-;; (defun jon-ruby-hook ()
-;;   (esk-run-coding-hook)
-;;   (autopair-mode)
-;;   (subword-mode))
-;; (add-hook 'ruby-mode-hook 'jon-ruby-hook)
+(defun jon-ruby-hook ()
+  (esk-run-coding-hook)
+  (autopair-mode)
+  (subword-mode))
+(add-hook 'ruby-mode-hook 'jon-ruby-hook)
 
-;; ;;; javascript
-;; (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+;;; javascript
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
-;; ;;; matches jshint output
-;; ;; (add-to-list 'compilation-error-regexp-alist
-;; ;;              '("^\\([^:\n\" ]+\\): line \\([0-9]+\\), col \\([0-9]+\\)" 1 2 3))
+;; matches jshint output
+;; (add-to-list 'compilation-error-regexp-alist
+;;              '("^\\([^:\n\" ]+\\): line \\([0-9]+\\), col \\([0-9]+\\)" 1 2 3))
 
-;; (defun jon-js-hook ()
-;;   (esk-run-coding-hook)
-;;   (autopair-mode)
-;;   (subword-mode)
-;;   (define-key js-mode-map (kbd ",") 'self-insert-command)
-;;   (local-set-key "\C-xq" 'jon-search-mdc-for-thing-at-point)
-;;   (local-set-key "\C-xj" 'jon-search-jquery-api-for-thing-at-point)
-;;   (local-set-key "\C-xp" 'prettify-json)
-;;   (setq js-indent-level 2)
-;;   (set (make-local-variable 'compile-command)
-;;        (concat "/Users/jon/Dev/SE/scripts/hint "
-;;                (file-name-nondirectory (buffer-file-name (current-buffer)))))
-;;   (set (make-local-variable 'compilation-read-command) nil)
-;;   ;; (font-lock-add-keywords
-;;   ;;  nil
-;;   ;;  '(("[:=] \\(function\\)"
-;;   ;;     (0 (prog1 nil
-;;   ;;          (compose-region (match-beginning 1) (match-end 1) ?λ))))))
-;;   )
-;; (add-hook 'js-mode-hook 'jon-js-hook)
-;; (add-hook 'js-mode-hook 'pretty-symbols-mode)
+(defun jon-js-hook ()
+  (esk-run-coding-hook)
+  (autopair-mode)
+  (subword-mode)
+  (define-key js-mode-map (kbd ",") 'self-insert-command)
+  (local-set-key "\C-xq" 'jon-search-mdc-for-thing-at-point)
+  (local-set-key "\C-xj" 'jon-search-jquery-api-for-thing-at-point)
+  (local-set-key "\C-xp" 'prettify-json)
+  (setq js-indent-level 2)
+  (set (make-local-variable 'compile-command)
+       (concat "/Users/jon/dev/SE/scripts/hint "
+               (file-name-nondirectory (buffer-file-name (current-buffer)))))
+  (set (make-local-variable 'compilation-read-command) nil))
+(add-hook 'js-mode-hook 'jon-js-hook)
+(add-hook 'js-mode-hook 'pretty-symbols-mode)
 
-;; (eval-after-load 'js
-;;   '(progn
-;;      (defun js-insert-and-indent (key)
-;;        (interactive (list (this-command-keys)))
-;;        (call-interactively (lookup-key (current-global-map) key)))
-;;      (defun prettify-json ()
-;;        (interactive)
-;;        (let ((b (if mark-active (min (point) (mark)) (point-min)))
-;;              (e (if mark-active (max (point) (mark)) (point-max))))
-;;          (shell-command-on-region
-;;           b e "python -mjson.tool" (current-buffer) t)))))
+(eval-after-load 'js
+  '(progn
+     (defun js-insert-and-indent (key)
+       (interactive (list (this-command-keys)))
+       (call-interactively (lookup-key (current-global-map) key)))
+     (defun prettify-json ()
+       (interactive)
+       (let ((b (if mark-active (min (point) (mark)) (point-min)))
+             (e (if mark-active (max (point) (mark)) (point-max))))
+         (shell-command-on-region
+          b e "python -mjson.tool" (current-buffer) t)))))
 
-;; ;;; haml-mode
-;; (defun jon-haml-mode-hook ()
-;;   "haml-mode-hook"
-;;   (autopair-mode)
-;;   (visual-line-mode))
-;; (add-hook 'haml-mode-hook 'jon-haml-mode-hook)
+;;; haml-mode
+(defun jon-haml-mode-hook ()
+  "haml-mode-hook"
+  (autopair-mode)
+  (visual-line-mode))
+(add-hook 'haml-mode-hook 'jon-haml-mode-hook)
 
-;; ;;; coffee-mode
-;; (defun jon-coffee-mode-hook ()
-;;   "coffee-mode hook"
-;;   (set (make-local-variable 'tab-width) 2)
-;;   (coffee-cos-mode t)
-;;   (setq coffee-js-mode 'js-mode)
-;;   (autopair-mode))
-;; (add-hook 'coffee-mode-hook 'jon-coffee-mode-hook)
+;;; coffee-mode
+(defun jon-coffee-mode-hook ()
+  "coffee-mode hook"
+  (set (make-local-variable 'tab-width) 2)
+  (coffee-cos-mode t)
+  (setq coffee-js-mode 'js-mode)
+  (autopair-mode))
+(add-hook 'coffee-mode-hook 'jon-coffee-mode-hook)
 
-;; ;;; emacs lisp
-;; (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+;;; emacs lisp
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 
-;; ;;; php
-;; (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
-;; (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+;;; php
+(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
-;; (defun jon-php-hook ()
-;;   (setq c-basic-offset 4)
-;;   (esk-run-coding-hook)
-;;   (autopair-mode)
-;;   (subword-mode))
-;; (add-hook 'php-mode-hook 'jon-php-hook)
+(defun jon-php-hook ()
+  (setq c-basic-offset 4)
+  (esk-run-coding-hook)
+  (autopair-mode)
+  (subword-mode))
+(add-hook 'php-mode-hook 'jon-php-hook)
 
-;; ;;; css, sass, less
-;; (add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
-;; (add-to-list 'auto-mode-alist '("\\.less$" . less-css-mode))
+;;; css, sass, less
+(add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
+(add-to-list 'auto-mode-alist '("\\.less$" . less-css-mode))
 
-;; (defun jon-css-hook ()
-;;   (setq css-indent-offset 2)
-;;   (esk-run-coding-hook)
-;;   (autopair-mode)
-;;   (subword-mode)
-;;   (rainbow-mode))
-;; (add-hook 'css-mode-hook 'jon-css-hook)
+(defun jon-css-hook ()
+  (setq css-indent-offset 2)
+  (esk-run-coding-hook)
+  (autopair-mode)
+  (subword-mode)
+  (rainbow-mode))
+(add-hook 'css-mode-hook 'jon-css-hook)
 
-;; ;;; shell
-;; (defun jon-sh-hook ()
-;;   (interactive)
-;;   (setq sh-basic-offset 2
-;;         sh-indentation 2)
-;;   (subword-mode))
-;; (add-hook 'sh-mode-hook 'jon-sh-hook)
+;;; shell
+(defun jon-sh-hook ()
+  (interactive)
+  (setq sh-basic-offset 2
+        sh-indentation 2)
+  (subword-mode))
+(add-hook 'sh-mode-hook 'jon-sh-hook)
 
-;; ;;; haskell
-;; (defun jon-haskell-hook ()
-;;     (autopair-mode))
-;; (add-hook 'haskell-mode-hook 'jon-haskell-hook)
+;;; haskell
+(defun jon-haskell-hook ()
+    (autopair-mode))
+(add-hook 'haskell-mode-hook 'jon-haskell-hook)
 
-;; ;;; magit
-;; (eval-after-load 'magit
-;;   '(progn
-;;      (set-face-foreground 'magit-diff-add "green3")
-;;      (set-face-foreground 'magit-diff-del "red3")))
+;;; magit
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")))
 
-;; ;;; outline-mode for todos
-;; (add-to-list 'auto-mode-alist '("[Tt][Oo][Dd][Oo]" . outline-mode))
+;;; outline-mode for todos
+(add-to-list 'auto-mode-alist '("[Tt][Oo][Dd][Oo]" . outline-mode))
 
-;; ;;; ssh
-;; (autoload 'ssh "ssh" "SSH" t)
+;;; ssh
+(autoload 'ssh "ssh" "SSH" t)
 
-;; ;;; flyspell
-;; (defun jon-flyspell-hook ()
-;;   (setq ispell-program-name "aspell"
-;;         ispell-extra-args '("--sug-mode=fast")
-;;         ispell-list-command "list"))
-;; (add-hook 'flyspell-mode-hook 'jon-flyspell-hook)
+;;; flyspell
+(defun jon-flyspell-hook ()
+  (setq ispell-program-name "aspell"
+        ispell-extra-args '("--sug-mode=fast")
+        ispell-list-command "list"))
+(add-hook 'flyspell-mode-hook 'jon-flyspell-hook)
 
-;; ;;; windmove (shift-arrow to switch windows)
-;; (require 'windmove)
-;; (windmove-default-keybindings)
+;;; windmove (shift-arrow to switch windows)
+(require 'windmove)
+(windmove-default-keybindings)
 
 (provide 'jon-packages)
