@@ -47,7 +47,6 @@
 (el-get-install "magit")
 (el-get-install "magithub")
 (el-get-install "markdown-mode")
-(el-get-install "auto-pair-plus")
 (el-get-install "emacs-jabber")
 (el-get-install "mustache-mode")
 (el-get-install "coffee-mode")
