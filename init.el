@@ -22,8 +22,8 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 (el-get 'sync)
+(require 'jon-packages)
 
-;; (require 'jon-packages)
 ;; (require 'jon-starter-kit)
 ;; (require 'jon-defuns)
 ;; (require 'jon-bindings)
