@@ -1,0 +1,5 @@
+.emacs.desktop*
+backups
+custom.el
+el-get
+recentf
