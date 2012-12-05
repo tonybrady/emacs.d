@@ -15,12 +15,10 @@
 (require 'jon-osx)
 (require 'jon-starter-kit)
 (require 'jon-packages)
-
-;; (require 'jon-starter-kit)
-;; (require 'jon-defuns)
-;; (require 'jon-bindings)
-;; (require 'jon-templates)
-;; (require 'jon-desktop)
+(require 'jon-defuns)
+(require 'jon-bindings)
+(require 'jon-templates)
+(require 'jon-desktop)
 ;; (require 'jon-startup)
 
 ;; (setq custom-theme-directory "~/.emacs.d/themes")
