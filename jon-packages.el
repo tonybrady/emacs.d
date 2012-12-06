@@ -32,6 +32,7 @@
                         (setq pretty-symbol-categories '(lambda relational logical))))
         ))
 
+(el-get-install "autopair")
 (el-get-install "idle-highlight-mode")
 (el-get-install "rvm")
 (el-get-install "ruby-mode")
@@ -78,7 +79,6 @@
 
 (defun jon-ruby-hook ()
   (esk-run-coding-hook)
-  (autopair-mode)
   (subword-mode))
 (add-hook 'ruby-mode-hook 'jon-ruby-hook)
 
