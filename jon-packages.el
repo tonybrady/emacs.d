@@ -178,8 +178,8 @@
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
 
-;;; outline-mode for todos
-(add-to-list 'auto-mode-alist '("[Tt][Oo][Dd][Oo]" . outline-mode))
+;;; markdown-mode for todos
+(add-to-list 'auto-mode-alist '("[Tt][Oo][Dd][Oo]" . markdown-mode))
 
 ;;; ssh
 (autoload 'ssh "ssh" "SSH" t)
