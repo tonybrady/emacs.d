@@ -59,6 +59,7 @@
 (el-get-install "less-css-mode")
 (el-get-install "pretty-symbols")
 (el-get-install "paredit")
+(el-get-install "php-mode")
 
 ;; not working, emacs-goodies was for csv-mode
 ;; (el-get-install "emacs-goodies-el")
