@@ -1,6 +1,7 @@
 (when (eq system-type 'darwin)
-  (setenv "PATH" (concat (getenv "PATH") ":/Users/jon/bin"))
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/share/npm/bin:/Users/jon/bin"))
   (add-to-list 'exec-path "/Users/jon/bin")
+  (add-to-list 'exec-path "/usr/local/share/npm/bin")
 
   (setenv "LANG" "en_GB.UTF-8")
   (setenv "LC_ALL" "en_GB.UTF-8")
