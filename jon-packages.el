@@ -87,8 +87,8 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 ;; matches jshint output
-;; (add-to-list 'compilation-error-regexp-alist
-;;              '("^\\([^:\n\" ]+\\): line \\([0-9]+\\), col \\([0-9]+\\)" 1 2 3))
+(add-to-list 'compilation-error-regexp-alist
+             '("^\\([^:\n\" ]+\\): line \\([0-9]+\\), col \\([0-9]+\\)" 1 2 3))
 
 (defun jon-js-hook ()
   (esk-run-coding-hook)
