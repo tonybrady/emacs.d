@@ -103,4 +103,9 @@ new shell if required, and set `jon-shell-buffer'."
       ;; (write-region nil nil "/tmp/emacs.blah")
       (message (md5 (current-buffer))))))
 
+(defun jon-copy-filename-to-kill-ring ()
+  (interactive)
+  (kill-new (buffer-file-name))
+  (message "%s" (buffer-file-name)))
+
 (provide 'jon-defuns)
