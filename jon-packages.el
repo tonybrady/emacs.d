@@ -197,6 +197,10 @@
         ispell-list-command "list"))
 (add-hook 'flyspell-mode-hook 'jon-flyspell-hook)
 
+;;; sql
+(sql-set-product "mysql")
+(add-to-list 'auto-mode-alist '("\\.sql$" . sql-mode))
+
 ;;; windmove (shift-arrow to switch windows)
 (require 'windmove)
 (windmove-default-keybindings)
