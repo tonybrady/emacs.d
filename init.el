@@ -8,7 +8,6 @@
 (add-to-list 'load-path dotfiles-dir)
 (add-to-list 'load-path (concat dotfiles-dir "lib"))
 
-(setq custom-file (concat dotfiles-dir "custom.el"))
 (setq recentf-save-file (concat dotfiles-dir "recentf"))
 
 (require 'jon-misc)
@@ -22,5 +21,6 @@
 ;; (require 'jon-startup)
 
 (setq custom-theme-directory "~/.emacs.d/themes")
-(load-theme 'tomorrow-night-modeline)
+(setq custom-file (concat dotfiles-dir "custom.el"))
+(load custom-file)
 (set-cursor-color "white")
