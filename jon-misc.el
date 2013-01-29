@@ -80,9 +80,8 @@
       smtpmail-debug-info t)
 (require 'smtpmail)
 
-;;; customisations that are getting stomped by custom-safe-themes
-(setq fill-column 80
-      jabber-history-enable-rotation t
+;;; jabber settings
+(setq jabber-history-enable-rotation t
       jabber-history-enabled t
       jabber-use-global-history nil
       jabber-account-list '(("jonathon.ramsey@gmail.com"
