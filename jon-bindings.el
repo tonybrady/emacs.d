@@ -4,6 +4,7 @@
 (global-set-key "\C-cf" 'font-lock-fontify-buffer)
 (global-set-key "\C-cg" 'rgrep)
 (global-set-key "\C-co" 'occur)
+(global-set-key "\C-cr" 'ruby-debug)
 (global-set-key "\C-cs" 'jon-switch-to-shell)
 (global-set-key "\C-ct" 'insert-timestamp)
 (global-set-key "\C-cm" 'magit-status)
