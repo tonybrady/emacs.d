@@ -32,6 +32,7 @@
                         (setq pretty-symbol-categories '(lambda relational logical))))
         ))
 
+(package-initialize)
 (el-get-install "autopair")
 (el-get-install "idle-highlight-mode")
 (el-get-install "rvm")
@@ -48,7 +49,7 @@
 (el-get-install "magit")
 (el-get-install "magithub")
 (el-get-install "markdown-mode")
-(el-get-install "emacs-jabber")
+;; (el-get-install "emacs-jabber")
 (el-get-install "mustache-mode")
 (el-get-install "coffee-mode")
 (el-get-install "haskell-mode")
@@ -198,7 +199,7 @@
 (add-hook 'flyspell-mode-hook 'jon-flyspell-hook)
 
 ;;; sql
-(sql-set-product "mysql")
+;; (sql-set-product "mysql")
 (add-to-list 'auto-mode-alist '("\\.sql$" . sql-mode))
 
 ;;; windmove (shift-arrow to switch windows)
