@@ -1,7 +1,7 @@
 (setq-default
- user-full-name "Jonathon Ramsey"
- user-mail-address "jonathon.ramsey@gmail.com"
- mail-default-reply-to "jonathon.ramsey@gmail.com")
+ user-full-name "Tony Brady"
+ user-mail-address "tony@sealedenvelope.com"
+ mail-default-reply-to "tony@sealedenvelope.com")
 
 (setq dotfiles-dir (file-name-directory
 		    (or (buffer-file-name) load-file-name)))

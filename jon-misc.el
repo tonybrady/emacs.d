@@ -84,7 +84,7 @@
 (setq jabber-history-enable-rotation t
       jabber-history-enabled t
       jabber-use-global-history nil
-      jabber-account-list '(("jonathon.ramsey@gmail.com"
+      jabber-account-list '(("tony@sealedenvelope.com"
                              (:network-server . "talk.google.com")
                              (:connection-type . ssl))))
 
